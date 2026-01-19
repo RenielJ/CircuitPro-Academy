@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CircuitPro Academy - TESDA Electronics & Electrical Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #003049;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #00B4D8 0%, #06D6A0 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #FFD60A;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD60A;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00B4D8 0%, #06D6A0 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-highlight {
+            color: #FFD60A;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #FFD60A;
+            color: #003049;
+            box-shadow: 0 4px 15px rgba(255, 214, 10, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 214, 10, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #00B4D8;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            background: white;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .badge {
+            text-align: center;
+            color: #003049;
+        }
+
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #F8F9FA;
+            padding: 4rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #00B4D8;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00B4D8;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #003049;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #003049;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #00B4D8;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Course Journey */
+        .journey {
+            background: linear-gradient(135deg, #00B4D8 0%, #06D6A0 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .journey-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #FFD60A;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-item h3 {
+            color: #FFD60A;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .timeline-item p {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Pioneer Batch Section */
+        .pioneer {
+            background: #FFD60A;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .pioneer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pioneer h2 {
+            font-size: 2.5rem;
+            color: #003049;
+            margin-bottom: 1rem;
+        }
+
+        .pioneer-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .benefit {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.3rem;
+        }
+
+        .price-discounted {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00B4D8;
+            margin: 1rem 0;
+        }
+
+        .price-save {
+            color: #06D6A0;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #003049;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #001C2E;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #FFD60A;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: #FFD60A;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>CircuitPro Academy</span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#journey">Learning Path</a></li>
+                <li><a href="#enroll">Enroll</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Launch Your <span class="hero-highlight">Tech Career</span> with TESDA-Accredited Training</h1>
+            <p>Master in-demand Electronics & Electrical skills in just 3 months. Join our Pioneer Batch and transform your future today.</p>
+            
+            <div class="cta-buttons">
+                <a href="#enroll" class="btn btn-primary">🎁 ENROLL NOW - 15% OFF</a>
+                <a href="#contact" class="btn btn-secondary">📅 Schedule Facility Tour</a>
+            </div>
+
+            <div class="trust-badges">
+                <div class="badge">
+                    <div class="badge-icon">✅</div>
+                    <strong>TESDA Accredited</strong>
+                    <p>Government-Certified</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">👨‍🏫</div>
+                    <strong>15+ Years Experience</strong>
+                    <p>Expert Instructors</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">🔧</div>
+                    <strong>Modern Equipment</strong>
+                    <p>Professional-Grade Tools</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">👥</div>
+                    <strong>Small Class Sizes</strong>
+                    <p>Max 25 Students</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">20,000+</div>
+                <div class="stat-label">Job Openings in PH for Technicians</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">₱18K-35K</div>
+                <div class="stat-label">Average Monthly Salary</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Find Jobs Within 3 Months</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3 Months</div>
+                <div class="stat-label">From Beginner to Certified</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="courses">
+        <h2 class="section-title">Why Choose CircuitPro Academy?</h2>
+        <p class="section-subtitle">We don't just teach—we transform beginners into job-ready professionals</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📜</div>
+                <h3>TESDA-Accredited Curriculum</h3>
+                <p>Government-approved program that follows national standards. Your certification is recognized nationwide and valued by employers.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🔧</div>
+                <h3>Experienced Instructors</h3>
+                <p>Learn from professionals with 15+ years of real-world experience. They don't just teach theory—they've done the actual work.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛠️</div>
+                <h3>80% Hands-On Training</h3>
+                <p>Stop just listening—start doing! Most of your time is spent working with real equipment, building actual circuits, and solving real problems.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Small Class Sizes</h3>
+                <p>Maximum 25 students per batch means more one-on-one time with instructors and more practice time with equipment.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Modern Equipment</h3>
+                <p>Train on professional-grade tools and technology you'll actually use in the field. No outdated or toy equipment here.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Job Placement Support</h3>
+                <p>We're building partnerships with companies that need technicians. Our goal is to connect you with opportunities after graduation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Journey -->
+    <section class="journey" id="journey">
+        <div class="journey-content">
+            <h2 class="section-title" style="color: white;">Your 3-Month Journey to Certification</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">From complete beginner to TESDA-certified professional</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>📅 WEEKS 1-2: Foundations</h3>
+                    <p><strong>What you'll learn:</strong> Electrical theory basics, safety protocols, tool familiarization, workplace standards</p>
+                    <p><strong>No experience needed</strong> — we start from absolute zero and build your knowledge step by step!</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>📅 WEEKS 3-6: Hands-On Basics</h3>
+                    <p><strong>What you'll do:</strong> Build circuits, practice basic wiring, test components, use multimeters and testing equipment</p>
+                    <p><strong>You'll create your first working circuits</strong> and understand how electronics actually function!</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>📅 WEEKS 7-10: Advanced Applications</h3>
+                    <p><strong>What you'll master:</strong> Troubleshooting techniques, repair procedures, commercial applications, complex problem-solving</p>
+                    <p><strong>Work on real-world scenarios</strong> that prepare you for actual job situations!</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>📅 WEEKS 11-12: Certification Prep</h3>
+                    <p><strong>Final push:</strong> Comprehensive review, practical exams, TESDA assessment preparation, final projects</p>
+                    <p><strong>Graduate job-ready and confident</strong> with your TESDA National Certificate!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pioneer Batch Offer -->
+    <section class="pioneer" id="enroll">
+        <div class="pioneer-content">
+            <h2>🚀 Join Our PIONEER BATCH</h2>
+            <p style="font-size: 1.3rem; color: #003049; margin-bottom: 2rem;">
+                Be among the first 25 students and get exclusive founding member benefits!
+            </p>
+
+            <div class="pioneer-benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <strong>15% Discount</strong>
+                    <p>Founding Student Rate</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🎁</div>
+                    <strong>FREE Toolkit</strong>
+                    <p>Worth ₱2,500</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⭐</div>
+                    <strong>Priority Placement</strong>
+                    <p>First Access to Job Referrals</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🤝</div>
+                    <strong>Lifetime Support</strong>
+                    <p>Alumni Network Benefits</p>
+                </div>
+            </div>
+
+            <div class="price-box">
+                <p style="color: #003049; font-size: 1.2rem; margin-bottom: 1rem;">Investment in Your Future:</p>
+                <div class="price-original">Regular Price: ₱25,000</div>
+                <div class="price-discounted">Pioneer Rate: ₱21,250</div>
+                <div class="price-save">YOU SAVE: ₱3,750</div>
+                <p style="color: #666; margin-top: 1rem;">Plus FREE toolkit worth ₱2,500!</p>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="#contact" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.2rem 3rem;">
+                    ⚡ SECURE YOUR SLOT NOW
+                </a>
+                <p style="color: #003049; margin-top: 1rem; font-weight: bold;">
+                    ⏰ Only <span style="color: #FF6B35;">12 slots</span> remaining for January batch!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Power Up Your Future?</h2>
+        <p>Don't let this opportunity pass. The demand for skilled technicians has never been higher.</p>
+        
+        <div style="max-width: 600px; margin: 2rem auto; background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px;">
+            <h3 style="color: #FFD60A; margin-bottom: 1.5rem;">Get Started Today:</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📞 Call/Text: <strong>0917-123-4567</strong></p>
+            <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📧 Email: <strong>enroll@circuitproacademy.com</strong></p>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">📍 Address: <strong>123 Tech Avenue, Quezon City</strong></p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:enroll@circuitproacademy.com" class="btn btn-primary">📧 Send Inquiry</a>
+                <a href="tel:09171234567" class="btn btn-secondary">📞 Call Now</a>
+            </div>
+        </div>
+
+        <p style="margin-top: 2rem; opacity: 0.8;">
+            Visit our facility anytime during business hours (Mon-Sat, 8AM-5PM)<br>
+            or schedule a personal tour to see our equipment and meet the instructors!
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CircuitPro Academy</h3>
+                <p>Empowering Filipinos through quality technical education and TESDA-accredited training programs.</p>
+                <div class="social-icons" style="margin-top: 1rem;">
+                    <a href="#" style="color: #FFD60A;">📘</a>
+                    <a href="#" style="color: #FFD60A;">📺</a>
+                    <a href="#" style="color: #FFD60A;">📸</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#courses">Our Courses</a>
+                <a href="#journey">Learning Path</a>
+                <a href="#enroll">Enrollment</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📍 123 Tech Avenue<br>Quezon City, Metro Manila</p>
+                <p>📞 0917-123-4567</p>
+                <p>📧 info@circuitproacademy.com</p>
+                <p>🕐 Mon-Sat: 8AM - 5PM</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+                <p style="margin-top: 1rem;">
+                    <strong>TESDA Accredited</strong><br>
+                    Program Registration No: [Number]
+                </p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 CircuitPro Academy. All rights reserved. | Designed for Educational Technology & Entrepreneurial Development</p>
+        </div>
+    </footer>
+</body>
+</html>
